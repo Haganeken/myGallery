@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Upload a File</title>
+</head>
+<body>
+  <h1>Upload a File</h1>
+  <form action="gallery.php" method="post" enctype="multipart/form-data">
+
+    <table style="border: 0px;">
+        <tr style="background: #cccccc;">
+          <td style="width: 150px; text-align: center;">Add photo to gallery</td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td><input type="text" name="name" size="15" maxlength="15" /></td>
+        </tr>
+        <tr>
+         <td>Date</td>
+         <td><input type="text" name="date" size="15" maxlength="15" /></td>
+        </tr>
+        <tr>
+         <td>Location</td>
+         <td><input type="text" name="location" size="15" maxlength="15" /></td>
+        </tr>
+        <tr>
+         <td>Photographer</td>
+         <td><input type="text" name="photographer" size="15" maxlength="15" /></td>
+        </tr>
+
+
+  <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+  <label for="the_file">Upload a file:</label>
+  <input type="file" name="the_file" id="the_file"/>
+  <input type="submit" value="Upload File"/>
+  </form>
+</body>
+</html>
