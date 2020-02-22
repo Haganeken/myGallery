@@ -4,14 +4,19 @@
   <title>Gallery</title>
 </head>
 <body>
+<a href="index.html">Go to Upload form</a>
    <h1>Caesar's Gallery Viewing</h1>
+   <div align="center"> 
+  			<table style="width: 100%; border: 0"> 
+  				<tr> 
 
 <?php
     //stores metadata in arrays
-    $name = array($_POST['name']);
+   $name = array($_POST['name']);
  	$date = array($_POST['date']);
  	$location = array($_POST['location']);
- 	$photographer = array($_POST['photographer']);
+   $photographer = array($_POST['photographer']);
+   $currentPhoto = $_FILES['the_file']['name'];
 
   if ($_FILES['the_file']['error'] > 0)
   {
@@ -69,6 +74,8 @@
   
 
 // display images in uploads folder
+
+
   $imagesDirectory = "uploads/";
  
   if(is_dir($imagesDirectory))
@@ -86,7 +93,31 @@
           
           if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
           {
-              echo "<img src='uploads/".$image."' width='200'> ";
+              
+             echo "<img src='uploads/".$image."' width='200'> ";
+              
+              //add code here
+             // if($image == $_FILES['the_file']['name']){
+                 //echo "Name: " .$name[0];
+
+
+
+                 for ($i = 0; $i < sizeof($name); $i++) { 
+                  echo "<td style=\"width: 33%; text-align: center\"> <img src=\""; 
+                  echo "\"/></td>";
+                  echo nl2br("Name: $name[$i]\nDate: $date[$i]\nLocation: $location[$i]\nPhotographer: $photographer[$i]");
+                  
+               } 
+
+
+
+
+
+
+
+
+              }
+               
                
               
           }
@@ -94,8 +125,13 @@
       
       closedir($opendirectory);
    
-  }
+  
 
 ?>
+
+</tr>
+
+  			</table>     
+  		</div>
 </body>
 </html>
